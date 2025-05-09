@@ -82,7 +82,7 @@ Most of the functionality related to Security is located in the `src/main/java/c
 
 ## Controllers
 
-There are two controllers in the `com.techelevator.controller` package for authentication and retrieving users.
+There are two controllers in the `com.mtg.controller` package for authentication and retrieving users.
 
 ### Authentication controller
 
@@ -98,8 +98,8 @@ The authentication controller uses the `JdbcUserDao` to read and write data from
 
 ### DAO integration tests
 
-`com.techelevator.dao.BaseDaoTest` has been provided for you to use as a base class for any DAO integration test. It initializes a Datasource for testing and manages rollback of database changes between tests.
+`com.mtg.dao.BaseDaoTest` has been provided for you to use as a base class for any DAO integration test. It initializes a Datasource for testing and manages rollback of database changes between tests.
 
-`com.techelevator.dao.JdbUserDaoTest` has been provided for you as an example for writing your own DAO integration tests.
+`com.mtg.dao.JdbUserDaoTest` has been provided for you as an example for writing your own DAO integration tests.
 
 Remember that when testing, you're using a copy of the real database. The schema for the test database is defined in the same schema script for the real database, `database/schema.sql`. The data for the test database is defined separately within `src/test/resources/test-data.sql`.
