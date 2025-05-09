@@ -1,0 +1,46 @@
+MTGPS SQL
+
+
+
+CREATE TABLE public."User" (
+    user_id SERIAL PRIMARY KEY,
+    username VARCHAR(20),
+    password_hash VARCHAR
+);
+
+CREATE TABLE public."Set"(
+    set_id INTEGER PRIMARY KEY,
+    set_code VARCHAR,
+    set_name VARCHAR
+);
+
+CREATE TABLE public."Card" (
+    card_id INTEGER PRIMARY KEY,
+    card_name VARCHAR,
+    set_id INTEGER REFERENCES public."Set"(set_id),  -- Corrected reference
+    rarity VARCHAR,
+    price VARCHAR,
+    image_url VARCHAR
+);
+
+CREATE TABLE public."UserOpenedPack"(
+    pack_opening_id SERIAL PRIMARY KEY,  -- Added data type and corrected placement
+    user_id INTEGER REFERENCES public."User"(user_id),
+    set_id INTEGER REFERENCES public."Set"(set_id),    -- Corrected reference
+    opening_date TIMESTAMP,
+    pack_price DECIMAL,
+    is_hot_pack BOOLEAN
+);
+
+CREATE TABLE public."PackCard"(
+    pack_opening_id INTEGER REFERENCES public."UserOpenedPack"(pack_opening_id),
+    card_id INTEGER REFERENCES public."Card"(card_id),      -- Corrected reference
+    quantity INTEGER NOT NULL
+);
+
+CREATE TABLE public."UserBinder"(
+    user_id INTEGER REFERENCES public."User"(user_id),
+    card_id INTEGER REFERENCES public."Card"(card_id),      -- Corrected reference
+    quantity INTEGER NOT NULL,
+    PRIMARY KEY (user_id, card_id)
+);
