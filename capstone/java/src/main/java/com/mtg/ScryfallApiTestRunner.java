@@ -25,7 +25,7 @@ public class ScryfallApiTestRunner implements CommandLineRunner {
         System.out.println("Testing ScryfallService...");
         System.out.println("--------------------------------------");
 
-        String setCodeToTest = "ONE"; // Replace with a set code you want to test (e.g., "LTR", "MKM")
+        String setCodeToTest = "TDM"; // Replace with a set code you want to test (e.g., "LTR", "MKM")
 
         try {
             List<Card> cards = scryfallService.getCardsBySet(setCodeToTest);

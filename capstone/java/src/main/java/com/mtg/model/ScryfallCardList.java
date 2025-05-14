@@ -17,7 +17,7 @@ public class ScryfallCardList {
     private String nextPage;
     private List<Card> data; // This field will hold the list of Card objects
 
-    // Getters and setters (or use Lombok if you have it set up)
+
 
     public String getObject() {
         return object;
